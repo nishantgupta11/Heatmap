@@ -1,0 +1,634 @@
+
+/* =====================================================
+   1) BASE — ENGAGEMENT
+===================================================== */
+
+#pageAnalyticsDetail .detail-section--engagement .metric-divider {
+    display: none;
+}
+
+#pageAnalyticsDetail .detail-section--engagement .metric-value {
+    white-space: nowrap;
+}
+
+#pageAnalyticsDetail .detail-section--engagement .metric-right-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 32px;
+    border-left: 1.3px solid #d0d0d0;
+}
+
+
+/* =====================================================
+   2) BASE — LOADING STATE
+===================================================== */
+
+#pageAnalyticsDetail .detail-body.is-loading {
+    filter: blur(3px);
+    opacity: 0.6;
+    pointer-events: none;
+    transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+
+/* =====================================================
+   3) DATE RANGE INPUT (TRIGGER)
+===================================================== */
+
+.detail-date-range {
+    position: relative;
+    display: inline-block;
+}
+
+.date-range-input {
+    padding: 10px 25px 10px 16px;
+    min-width: 206px;
+    max-width: 100%;
+    border-radius: 12px;
+    border: 1px solid #e5e5e5;
+    background: #ffffff;
+    color: #2e2054;
+    font-size: 13px;
+    font-weight: 500;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+}
+
+.date-range-input:focus {
+    outline: none;
+    border-color: #512b8b;
+    box-shadow: 0 0 0 2px rgba(81, 43, 139, 0.2);
+}
+
+.detail-date-range::after {
+    content: "▾";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 11px;
+    color: #7a6f90;
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   4) DATE RANGE PICKER SKIN (bootstrap-daterangepicker)
+===================================================== */
+
+.daterangepicker {
+    z-index: 3000; /* safe above sidebars/modals */
+    font-family: "Manrope", sans-serif;
+}
+
+.daterangepicker td,
+.daterangepicker th {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+}
+
+/* keep hover neutral on available cells/headers */
+.daterangepicker td.available:hover,
+.daterangepicker th.available:hover {
+    background-color: transparent;
+    color: inherit;
+}
+
+/* selected range */
+.daterangepicker td.in-range {
+    background-color: #dbd3e7;
+    color: #2e2054;
+}
+
+.daterangepicker td.in-range:hover {
+    background-color: #dbd3e7;
+    color: #2e2054;
+}
+
+/* remove default solid active background; we use radial for ends */
+.daterangepicker td.active,
+.daterangepicker td.active:hover {
+    background-color: transparent !important;
+}
+
+/* start / end caps */
+.daterangepicker td.start-date,
+.daterangepicker td.end-date {
+    background: radial-gradient(circle, #512b8b 0 60%, #dbd3e7 62% 100%) !important;
+    color: #ffffff !important;
+}
+
+.daterangepicker td.start-date:hover,
+.daterangepicker td.end-date:hover {
+    background: radial-gradient(circle, #512b8b 0 60%, #dbd3e7 62% 100%) !important;
+    color: #ffffff !important;
+}
+
+/* Buttons */
+.daterangepicker .applyBtn,
+.daterangepicker .btn-primary {
+    background: #512b8b;
+    border-color: #512b8b;
+    color: #ffffff;
+    font-weight: 600;
+    border-radius: 34px;
+    padding: 8px 16px;
+    min-width: 75px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.daterangepicker .applyBtn:hover,
+.daterangepicker .btn-primary:hover {
+    background: #512b8b;
+    border-color: #512b8b;
+}
+
+.daterangepicker .cancelBtn {
+    background: #e5e5e5;
+    color: #1f1f1f;
+    border-radius: 34px;
+    padding: 8px 16px;
+    min-width: 83px;
+    border: 1px solid #d0d0d0;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.daterangepicker .cancelBtn:hover {
+    background: #ffffff;
+    border-color: #d0d0d0;
+}
+
+
+/* =====================================================
+   5) DEVICE DISTRIBUTION
+===================================================== */
+
+.device-distribution {
+    border-radius: 12px;
+    /* font-family: Arial, sans-serif; */ /* preserved comment */
+}
+
+.device-distribution h3 {
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b22a8;
+}
+
+.device-distribution .detail-metrics-grid-two-column {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    border-radius: 12px;
+}
+
+.device-distribution .detail-metrics-grid-two-column .metric-row {
+    flex: 1 1 50%;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-top: none;
+    background: #fff;
+    border-radius: 12px;
+}
+
+.device-distribution .detail-metrics-grid-two-column .metric-row + .metric-row {
+    /* border-left: 1px solid #e5e5e5; */ /* preserved comment from source */
+    border-top: none;
+}
+
+.device-distribution .detail-metrics-grid-two-column .metric-row:first-child {
+    border-radius: 12px;
+}
+
+.device-distribution .detail-metrics-grid-two-column .metric-row:last-child {
+    border-radius: 12px;
+}
+
+/* Hover */
+.device-distribution .detail-metrics-grid-two-column .metric-row:hover {
+    background: #f9f9f9;
+}
+
+/* Image inside icon */
+.device-distribution .metric-icon img {
+    height: 18px;
+    display: block;
+}
+
+.device-distribution .metric-label {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+
+.device-distribution .metric-value {
+    font-size: 18px;
+    font-weight: 800;
+    color: #333;
+}
+
+/* (legacy vertical list support) */
+.device-distribution .metric-row + .metric-row {
+    border-top: 1px solid #e5e5e5;
+}
+
+
+/* =====================================================
+   6) BEHAVIOUR CONTEXT
+===================================================== */
+
+/* Section title */
+.behaviour-context h3 {
+    font-weight: 700;
+    color: #6a1b9a;
+    margin: 0 0 12px;
+    font-size: 16px;
+}
+
+/* Wrapper grid (single metric) */
+.behaviour-context .detail-metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* Card styling */
+.behaviour-context .metric-box {
+    background: linear-gradient(
+        345.4deg,
+        rgba(255, 255, 255, 0.2) 25.9%,
+        rgba(219, 211, 231, 0.2) 90.95%
+    );
+    border-radius: 16px;
+    padding: 28px 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    background-image: linear-gradient(
+        180deg,
+        rgba(103, 80, 164, 0.06),
+        rgba(103, 80, 164, 0)
+    );
+}
+
+.behaviour-context .metric-box-header {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+        "icon label"
+        "icon value";
+    column-gap: 14px;
+    align-items: center;
+}
+
+/* Icon wrapper: purple circular badge */
+.behaviour-context .metric-icon {
+    grid-area: icon;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #6a1b9a;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.behaviour-context .metric-icon img {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) invert(1);
+}
+
+/* Label (top right) */
+.behaviour-context .metric-label {
+    grid-area: label;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3c3c43;
+}
+
+/* Value (bottom right, bold emphasis) */
+.behaviour-context .metric-value {
+    grid-area: value;
+    font-size: 24px;
+    font-weight: 800;
+    color: #1d1d1f;
+    margin-top: 0;
+}
+
+
+/* =====================================================
+   7) TV CARDS
+===================================================== */
+
+.tv-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Individual card */
+.tv-card {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    align-items: center;
+    gap: 16px;
+    background: #ffffff;
+    border: 1px solid #e8e8ef;
+    border-radius: 14px;
+    padding: 14px 16px;
+    box-shadow:
+        0 2px 6px rgba(28, 24, 88, 0.04),
+        0 8px 24px rgba(28, 24, 88, 0.06);
+}
+
+/* Small polish for hover */
+.tv-card:hover {
+    background: #f9f9f9;
+    border-color: #d9d7ee;
+    box-shadow:
+        0 4px 10px rgba(28, 24, 88, 0.06),
+        0 10px 28px rgba(28, 24, 88, 0.08);
+    transition: box-shadow 160ms ease, border-color 160ms ease;
+}
+
+/* Icon block (soft purple tile) */
+.tv-card__icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    background: #efe8ff; /* light purple */
+    display: grid;
+    place-items: center;
+}
+
+.tv-card__icon img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+/* Title + value */
+.tv-card__title {
+    font-size: 18px;
+    color: #2b1b4f; /* darker purple text */
+    font-weight: 600;
+}
+
+.tv-card__value {
+    font-weight: 700;
+    color: #1d1d1f; /* accent purple (text) */
+    margin-left: 6px;
+}
+
+/* Divider line */
+.tv-card__divider {
+    border: none;
+    border-top: 1px solid #e8e8ef;
+    margin: 8px 0;
+}
+
+/* Badge row: green pill + caption */
+.tv-card__badge-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.tv-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 13px;
+    line-height: 1;
+    color: #ffffff;
+    background: #2bb673; /* green */
+}
+
+.tv-badge img {
+    width: 14px;
+    height: 14px;
+    object-fit: contain;
+}
+
+.tv-badge strong {
+    font-weight: 700;
+}
+
+.tv-badge__caption {
+    font-size: 13px;
+    color: #6b6a75; /* muted */
+}
+
+
+/* =====================================================
+   8) TRAFFIC VOLUME SECTION
+===================================================== */
+
+.traffic-volume-section {
+    margin-top: 24px;
+}
+
+.traffic-volume-section h3 {
+    line-height: 1.2;
+    margin: 0 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #5b22a8;
+}
+
+/* =====================================================
+   9) MEDIA QUERIES
+===================================================== */
+
+/* -- ≤ 768px (TABLET/MOBILE) -- */
+@media (max-width: 768px) {
+
+    /* Traffic & cards spacing */
+    #pageAnalyticsDetail .traffic-volume-section {
+        margin-top: 12px;
+    }
+
+    #pageAnalyticsDetail .tv-cards {
+        gap: 12px;
+    }
+
+    #pageAnalyticsDetail .tv-card {
+        grid-template-columns: 52px 1fr;
+        padding: 12px 14px;
+    }
+
+    #pageAnalyticsDetail .tv-card__title {
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #pageAnalyticsDetail .tv-card__value {
+        margin-left: auto;
+        white-space: nowrap;
+    }
+
+    /* Engagement section padding */
+    #pageAnalyticsDetail .detail-section--engagement {
+        padding: 12px;
+    }
+
+    /* Engagement metric rows — ONE LAYOUT (GRID) */
+    #pageAnalyticsDetail .detail-metrics-grid-engagement .metric-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) max-content; /* title | (value+score group) */
+        column-gap: 16px;
+        align-items: center;
+        padding: 10px 16px;
+    }
+
+    #pageAnalyticsDetail .detail-metrics-grid-engagement .metric-left {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+
+    #pageAnalyticsDetail .detail-metrics-grid-engagement .metric-right {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    #pageAnalyticsDetail .detail-metrics-grid-engagement .metric-right-group {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 100%;
+        gap: 8px;
+        padding-left: 16px;
+        border-left: 1.3px solid #d0d0d0;
+        white-space: nowrap;
+    }
+
+    #pageAnalyticsDetail .detail-metrics-grid-engagement .metric-value {
+        white-space: nowrap;
+    }
+
+    /* Two column section stacks */
+    #pageAnalyticsDetail .detail-section--two-column {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 12px;
+    }
+
+    /* Device distribution compact padding */
+    #pageAnalyticsDetail .device-distribution .metric-row {
+        padding: 12px 14px;
+    }
+
+    /* Behaviour card tighter padding */
+    #pageAnalyticsDetail .behaviour-context .metric-box {
+        padding: 18px 16px;
+    }
+
+    /* Date range full-width on small screens */
+    .detail-date-range,
+    .date-range-input {
+        max-width: 100%;
+        display: block;
+        width: 100%;
+    }
+
+    /* Daterangepicker footer – better mobile layout */
+    .daterangepicker .drp-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 8px 16px 12px;
+        border-top: 1px solid #f0f0f5;
+        background: #f7f7fb;
+    }
+
+    .daterangepicker .drp-selected {
+        flex: 1 1 auto;
+        font-size: 12px;
+        font-weight: 500;
+        color: #4b4b4b;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        margin-right: 8px;
+        margin-bottom: 7px;
+    }
+
+    .daterangepicker .cancelBtn,
+    .daterangepicker .applyBtn {
+        flex: 0 0 auto;
+        margin: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* TV cards to single column */
+    .tv-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* -- ≤ 480px (MOBILE COMPACT) -- */
+@media (max-width: 480px) {
+    .device-distribution .detail-metrics-grid-two-column {
+        gap: 6px;
+    }
+
+    #pageAnalyticsDetail .device-distribution .detail-metrics-grid-two-column .metric-row {
+        padding: 8px 6px;
+        gap: 5px;
+    }
+
+    .device-distribution .metric-icon img {
+        height: 14px;
+    }
+
+    .device-distribution .metric-label {
+        font-size: 12px;
+        white-space: normal;
+    }
+
+    .device-distribution .metric-value {
+        font-size: 14px;
+        white-space: nowrap;
+    }
+}
+
+
+/* -- very small, short screens -- */
+@media (max-width: 380px) and (max-height: 700px) {
+    .daterangepicker {
+        transform: scale(0.85);
+        transform-origin: top center;
+    }
+}
+
+
+
+
+

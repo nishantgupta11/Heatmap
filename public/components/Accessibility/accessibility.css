@@ -1,0 +1,389 @@
+
+/* =========================================================
+   ACCESSIBILITY – BASE / DESKTOP STYLES
+========================================================= */
+
+.metric-grid .group-section {
+    margin-bottom: 25px;
+}
+
+.metric-grid .group-section .group-title {
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #1d1d1f;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+/* =========================================================
+   ACCORDION
+========================================================= */
+
+.metric-grid .accordion {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e2f0;
+}
+
+.metric-grid .accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f5f5f5;
+    cursor: pointer;
+    padding: 12px;
+    font-size: 16px;
+    color: #3c3c43;
+}
+
+/* .metric-grid .accordion-header span {
+    display: inline-block;
+} */
+
+.metric-grid .accordion-arrow {
+    font-size: 40px;
+    line-height: 1;
+    font-weight: normal;
+    transition: all 0.2s ease;
+}
+
+.metric-grid .accordion-arrow.open {
+    padding: 0 11px;
+    border-radius: 50%;
+    background: #e0e0e0;
+    color: #000;
+}
+
+.metric-grid .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 10px;
+    transition: max-height 0.3s ease;
+}
+
+.metric-grid .accordion-content.open {
+    padding: 10px;
+    max-height: 1000px;
+}
+
+.metric-grid.metric-pdf-downloaded .accordion-header {
+    padding: 0;
+    background: none;
+}
+
+.metric-grid.metric-pdf-downloaded .accordion {
+    border: none;
+}
+
+.metric-grid.metric-pdf-downloaded .group-section {
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.metric-grid.metric-pdf-downloaded .element-card {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 0;
+    margin:0;
+    padding: 12px 0;
+}
+
+/* .metric-grid.metric-pdf-downloaded .accordion-header span {
+    display: inline-block;
+} */
+
+.metric-grid.metric-pdf-downloaded .accordion-arrow {
+    font-size: 0;
+    position: relative;
+}
+
+.metric-grid.metric-pdf-downloaded .accordion-arrow::after {
+    display: inline-block;
+    content:'';
+    width: 10px;
+    height: 10px;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+    transform: rotate(45deg);
+    transition: transform 0.5s ease;
+}
+
+.metric-grid.metric-pdf-downloaded .accordion-arrow.open::after {
+    transform: rotate(-135deg);
+}
+
+.metric-grid.metric-pdf-downloaded .accordion-arrow.open {
+    padding: 0;
+    border-radius: 0%;
+    background: none;
+}
+
+#pageAnalyticsDetail .detail-section--engagement .metric-grid.metric-pdf-downloaded .metric-right-group {
+    width: 100%;
+}
+
+.metric-grid.metric-pdf-downloaded .accordion-header span.pdf-val-cont {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 15px;
+}
+
+.metric-grid.metric-pdf-downloaded .metric-row {
+    width:100%;
+}
+
+/* =========================================================
+   ELEMENT CARD
+========================================================= */
+
+.metric-grid .element-card {
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #fff;
+}
+
+.metric-grid .element-card h4 {
+    margin: 0 0 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+}
+
+.metric-grid .element-card img {
+    max-width: 100%;
+    margin-top: 8px;
+    border-radius: 4px;
+}
+
+/* =========================================================
+   CODE / SEARCH PLACEHOLDER
+========================================================= */
+
+.metric-grid .accordion-content pre.search-placeholder,
+.metric-grid .element-card pre.search-placeholder {
+    margin: 6px 0;
+    padding: 8px;
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 13px;
+    color: #1a73e8;
+    white-space: pre-wrap;
+}
+
+/* =====================================================
+   PDF's
+===================================================== */
+
+.pdf-cards {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 16px;
+    width:50%;
+    gap:8px;
+}
+
+.pdf-cards:nth-child(odd of .pdf-cards) {
+    border-right: 1px solid #e0e0e0;
+}
+
+.pdf-cards .pdf-name {
+    font-size: 13px;
+    word-break: break-word;
+}
+
+.pdf-cards .pdf-count {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   MOBILE STYLES (≤ 768px)
+========================================================= */
+
+@media (max-width: 768px) {
+
+    /* ---------- Container & Header ---------- */
+
+    #accessibilityDetail {
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+        height: auto;
+        max-height: none;
+    }
+
+    #accessibilityDetail .detail-body {
+        min-height: calc(100vh - 180px);
+        height: calc(100% - 130px);
+        max-height: none;
+        overflow-y: auto;
+        padding: 14px 14px 20px;
+        gap: 18px;
+    }
+
+    #accessibilityDetail .detail-header {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 14px 16px;
+        align-items: stretch;
+        border-radius: 18px;
+    }
+
+    #accessibilityDetail .detail-header-left {
+        justify-content: flex-start;
+    }
+
+    #accessibilityDetail .detail-title {
+        font-size: 18px;
+    }
+
+    #accessibilityDetail .detail-header-right {
+        display: none;
+    }
+
+    /* ---------- Accessibility Score (Gauge) ---------- */
+
+    #accessibilityDetail .detail-section--accessibility {
+        margin-top: 16px;
+        padding: 16px 16px 18px;
+        border-radius: 18px;
+        border: 1px solid #e8e1ff;
+        background: #f8f6ff;
+    }
+
+    #accessibilityDetail .detail-section--accessibility h3 {
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #5b22a8;
+    }
+
+    #accessibilityDetail .performance-score-widget {
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+
+    #accessibilityDetail .performance-score-widget .gauge-container {
+        width: min(260px, 80vw);
+        height: calc(min(260px, 80vw) * 0.5);
+    }
+
+    /* Device toggle */
+
+    #accessibilityDetail .performance-toggle.accessibility-toggle {
+        width: 100%;
+        max-width: 260px;
+        margin: 6px auto 0;
+    }
+
+    /* ---------- WCAG Compliance Metrics ---------- */
+
+    #accessibilityDetail .wcag-compliance-metrics {
+        margin-top: 18px;
+        padding: 16px 16px 12px;
+        border-radius: 18px;
+        border: 1px solid #e8e1ff;
+        background: #f8f6ff;
+    }
+
+    #accessibilityDetail .wcag-compliance-metrics h3 {
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #5b22a8;
+    }
+
+    /* ---------- Grid & Accordion Overrides ---------- */
+
+    #accessibilityDetail .metric-grid .group-section {
+        margin-bottom: 18px;
+    }
+
+    #accessibilityDetail .metric-grid .group-section .group-title {
+        margin-bottom: 6px;
+        font-size: 12px;
+    }
+
+    #accessibilityDetail .metric-grid .accordion-header {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+
+    /* Accordion behavior override for mobile */
+
+    #accessibilityDetail .metric-grid .accordion-content {
+        display: none;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+    }
+
+    #accessibilityDetail .metric-grid .accordion-content.open {
+        display: block;
+        padding: 10px 12px 12px;
+        max-height: none;
+    }
+
+    /* ---------- Element Card (Mobile) ---------- */
+
+    #accessibilityDetail .metric-grid .element-card {
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border-radius: 8px;
+    }
+
+    #accessibilityDetail .metric-grid .element-card h4 {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+    }
+
+    /* ---------- Code Blocks (Mobile) ---------- */
+
+    #accessibilityDetail .metric-grid .accordion-content pre.search-placeholder,
+    #accessibilityDetail .metric-grid .element-card pre.search-placeholder {
+        font-size: 12px;
+        line-height: 1.4;
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        word-break: break-word;
+    }
+
+    
+    .pdf-cards {
+        width:100%;
+    }
+
+    .pdf-cards:nth-child(odd of .pdf-cards) {
+        border-right: none;
+    }
+
+    .metric-grid.metric-pdf-downloaded .accordion-arrow::after {
+        width:7px;
+        height:7px;
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+

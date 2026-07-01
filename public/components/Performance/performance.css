@@ -1,0 +1,226 @@
+@media (max-width: 768px) {
+    .metricSectionsContainer {
+        overflow-y: auto;
+    }
+
+    /* ---------- Container & header card ---------- */
+
+    #performanceDetail {
+        background: #ffffff;
+        border-radius: 18px;
+        box-shadow: none;
+        height: auto;
+        max-height: none;
+    }
+
+    #performanceDetail .detail-body {
+        min-height: calc(100vh - 180px);
+        height: calc(100% - 130px);
+        max-height: none;
+        overflow-y: auto;
+        padding: 14px 14px 20px;
+        gap: 18px;
+    }
+
+    #performanceDetail .detail-header {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+        padding: 14px 14px 16px;
+        border-radius: 18px;
+    }
+
+    #performanceDetail .detail-header-left {
+        justify-content: flex-start;
+    }
+
+    #performanceDetail .detail-title {
+        font-size: 18px;
+    }
+
+    #performanceDetail .detail-header-right {
+        display: none;
+    }
+
+    #performanceDetail .detail-section--performance:first-of-type {
+        margin-top: 16px;
+        padding: 16px 16px 18px;
+        border-radius: 18px;
+        border: 1px solid #e8e1ff;
+        background: #f8f6ff;
+    }
+
+    #performanceDetail .detail-section--performance:first-of-type h3 {
+        margin: 0 0 10px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #5b22a8;
+    }
+
+    #performanceDetail .performance-score-widget {
+        justify-content: center;
+        margin-bottom: 14px;
+    }
+
+    #performanceDetail .performance-score-widget .gauge-container {
+        width: min(260px, 80vw);
+        height: calc(min(260px, 80vw) * 0.5);
+    }
+
+    #performanceDetail .performance-toggle {
+        width: 100%;
+        max-width: 260px;
+        margin: 6px auto 0;
+    }
+
+    #performanceDetail .detail-section--performance:nth-of-type(2) {
+        margin-top: 18px;
+        padding: 16px 16px 12px;
+        border-radius: 18px;
+        border: 1px solid #e8e1ff;
+        background: #f8f6ff;
+    }
+
+    #performanceDetail .detail-section--performance:nth-of-type(2) h3 {
+        margin: 0 0 12px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #5b22a8;
+    }
+
+    #performanceDetail .detail-metrics-grid,
+    #performanceDetail .detail-metrics-grid-engagement {
+        border-radius: 14px;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-row,
+    #performanceDetail .detail-metrics-grid-engagement .metric-row {
+        display: grid;
+        grid-template-columns: minmax(0, 2fr) auto auto;
+        column-gap: 10px;
+        align-items: center;
+        padding: 10px 14px;
+        border-bottom: 1px solid #f1f1f5;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-row:last-child,
+    #performanceDetail .detail-metrics-grid-engagement .metric-row:last-child {
+        border-bottom: none;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-left,
+    #performanceDetail .detail-metrics-grid-engagement .metric-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        min-width: 0;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-label,
+    #performanceDetail .detail-metrics-grid-engagement .metric-label {
+        white-space: normal;
+        line-height: 1.3;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-middle,
+    #performanceDetail .detail-metrics-grid-engagement .metric-middle {
+        justify-self: center;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-right,
+    #performanceDetail .detail-metrics-grid-engagement .metric-right {
+        justify-self: flex-end;
+        display: flex;
+        align-items: center;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-rating,
+    #performanceDetail .detail-metrics-grid-engagement .metric-rating {
+        white-space: nowrap;
+    }
+}
+
+/* 3 col view for the metrics inside the ta */
+@media (max-width: 480px) {
+
+    #performanceDetail .detail-metrics-grid .metric-row,
+    #performanceDetail .detail-metrics-grid-engagement .metric-row {
+        display: grid !important;
+        grid-template-columns: minmax(0, 0.75fr) minmax(0, 0.5fr) minmax(0, 1fr);
+        column-gap: 7px;
+        padding: 8px 12px;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-left,
+    #performanceDetail .detail-metrics-grid-engagement .metric-left {
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-middle,
+    #performanceDetail .detail-metrics-grid-engagement .metric-middle {
+        justify-self: center;
+        white-space: nowrap;
+        font-weight: 700;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-right,
+    #performanceDetail .detail-metrics-grid-engagement .metric-right {
+        justify-self: flex-end;
+        margin-left: 0;
+        display: flex;
+        align-items: center;
+    }
+}
+
+@media (max-width: 430px) {
+
+    #performanceDetail .detail-metrics-grid .metric-row,
+    #performanceDetail .detail-metrics-grid-engagement .metric-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        row-gap: 4px;
+        column-gap: 8px;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-left,
+    #performanceDetail .detail-metrics-grid-engagement .metric-left {
+        flex: 1 1 100%;
+        min-width: 0;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-middle,
+    #performanceDetail .detail-metrics-grid-engagement .metric-middle {
+        flex: 0 0 auto;
+        font-size: 13px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-right,
+    #performanceDetail .detail-metrics-grid-engagement .metric-right {
+        flex: 0 0 auto;
+        margin-left: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-label,
+    #performanceDetail .detail-metrics-grid-engagement .metric-label {
+        font-size: 13px;
+    }
+
+    #performanceDetail .detail-metrics-grid .metric-rating,
+    #performanceDetail .detail-metrics-grid-engagement .metric-rating {
+        font-size: 12px;
+        white-space: nowrap;
+    }
+}

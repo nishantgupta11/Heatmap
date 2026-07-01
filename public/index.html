@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Page Insights</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="components/Accessibility/accessibility.css" />
+  <link rel="stylesheet" href="components/Analytics/analytics.css" />
+  <link rel="stylesheet" href="components/Performance/performance.css" />
+</head>
+
+<body>
+  <div class="main-content">
+    <div class="page-content">
+      <div class="block">Lots of content...</div>
+      <div class="block">Scroll down...</div>
+      <div class="block">More content...</div>
+      <div class="block">Keep scrolling...</div>
+      <div class="block">Even more content...</div>
+      <div class="block">Bottom content...</div>
+    </div>
+
+    <button id="showMetricsBtn" class="cta-card" role="button" aria-label="Open Page Insights">
+      <div class="cta-text">
+        <h4>Page Insights</h4>
+      </div>
+
+      <div class="cta-media">
+        <img src="./images/page-insight-icon.png" alt="icon" class="page-insights-logo" />
+      </div>
+    </button>
+  </div>
+
+  <div id="metricsSidebar" class="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <div class="header-left">
+          <img src="./images/kpmg-logo.svg" class="logo-img" alt="KPMG logo" />
+          <div class="header-text">
+            <div class="brand-subtitle">Page Performance</div>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button id="headerBackBtn" class="header-back-btn" type="button">
+            <span><img src="./images/back-icon.svg" class="back-icon" /></span>
+            Back
+          </button>
+          <button id="closeBtn" class="close-btn" type="button">
+            ×
+          </button>
+        </div>
+      </div>
+      <!-- dummy class -->
+      <!-- <div class="ccforms"></div>
+      <div class="faq-list-container"></div>
+      <div class="video-elem__thumbnail-img"></div>
+      <div class="resource-list-container"></div> -->
+
+      <div id="globalLoader" class="loader-container">
+        <img id="customLoaderImage"
+          src="https://beta.asianpaints.com/content/dam/cc-poc-images/pageinsights-images/GIFImage.gif"
+          alt="Loading spinner" class="custom-loader-image" />
+      </div>
+
+      <div id="metricSectionsContainer" class="metricSectionsContainer">
+        <!-- OVERVIEW SCREEN -->
+        <div id="metricsOverview" class="metrics-overview">
+          <div class="overall-status-card">
+            <div class="overall-left">
+              <div>
+                <img class="critical-icon" src="./images/needs-Improvement.svg" />
+              </div>
+              <div>
+                <div class="overall-title">
+                  <span class="overall-title-highlight">Critical Metrics</span>
+                </div>
+                <ul class="overall-list" id="overall-critical-points">
+                  <li>
+                    <div class="shimmer-card"></div>
+                    <div class="critical-item" style="display:none"></div>
+                  </li>
+                  <li>
+                    <div class="shimmer-card"></div>
+                    <div class="critical-item" style="display:none"></div>
+                  </li>
+                  <li>
+                    <div class="shimmer-card"></div>
+                    <div class="critical-item" style="display:none"></div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="overall-right">
+              <span class="status-pill status-pill--warning">Needs Improvement</span>
+            </div>
+          </div>
+
+          <div class="metric-card-grid">
+            <!-- Page Analytics card -->
+            <div class="metric-card metric-card--analytics" data-detail="pageAnalyticsDetail">
+              <div class="metric-header">
+                <div class="metric-card-main">
+                  <div class="metric-card-left">
+                    <div class="metric-icon-box">
+                      <img src="./images/page-analytics.svg" alt="Page Analytics" />
+                    </div>
+                    <div>
+                      <div class="metric-card-title">Page Analytics</div>
+                    </div>
+                  </div>
+                  <div class="metric-card-arrow">
+                    <img class="metric-card-arrow-image" src="./images/arrow.svg" alt="Open" />
+                  </div>
+                </div>
+
+                <hr class="metric-divider" />
+
+                <div class="metric-card-footer">
+                  <span class="metric-card-caption">
+                    Traffic, Bounce, Conversion
+                  </span>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Performance Metrics card -->
+            <div class="metric-card metric-card--performance" data-detail="performanceDetail">
+              <div class="metric-header">
+                <div class="metric-card-main">
+                  <div class="metric-card-left">
+                    <div class="metric-icon-box">
+                      <img src="./images/performance-metrics.svg" alt="Performance Metrics" />
+                    </div>
+                    <div>
+                      <div class="metric-card-title">
+                        Performance Metrics
+                      </div>
+                    </div>
+                  </div>
+                  <div class="metric-card-arrow">
+                    <img class="metric-card-arrow-image" src="./images/arrow.svg" alt="Open" />
+                  </div>
+                </div>
+
+                <hr class="metric-divider" />
+
+                <div class="metric-card-footer">
+                  <span class="metric-card-caption">Core Web Vitals</span>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- Accessibility card -->
+            <div class="metric-card metric-card--accessibility" data-detail="accessibilityDetail">
+              <div class="metric-header">
+                <div class="metric-card-main">
+                  <div class="metric-card-left">
+                    <div class="metric-icon-box">
+                      <img src="./images/accessibility-compliance.svg" alt="Accessibility Compliance" />
+                    </div>
+                    <div>
+                      <div class="metric-card-title">
+                        Accessibility Compliance
+                      </div>
+                    </div>
+                  </div>
+                  <div class="metric-card-arrow">
+                    <img class="metric-card-arrow-image" src="./images/arrow.svg" alt="Open" />
+                  </div>
+                </div>
+
+                <hr class="metric-divider" />
+
+                <div class="metric-card-footer">
+                  <span class="metric-card-caption">WCAG Guidelines</span>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PAGE ANALYTICS DETAIL -->
+        <div id="pageAnalyticsDetail" class="metric-detail">
+          <div class="detail-header">
+            <div class="detail-header-left">
+              <div class="metric-icon-box">
+                <img src="./images/page-analytics.svg" alt="Page Analytics" />
+              </div>
+              <div>
+                <div class="detail-title">Page Analytics</div>
+                <div class="detail-subtitle">
+                  Traffic, Bounce, Conversion
+                </div>
+              </div>
+            </div>
+            <div class="detail-header-right">
+              <div class="detail-date-range">
+                <input type="text" id="dateRangeInput" name="daterange" class="date-range-input" readonly />
+              </div>
+            </div>
+          </div>
+
+          <!-- detail-body (updated with IDs + icons) -->
+          <div class="detail-body">
+            <section class="detail-section">
+              <div class="traffic-volume-section">
+                <h3>Traffic Volume</h3>
+
+                <div class="tv-cards">
+                  <!-- Total Visits -->
+                  <article class="tv-card" aria-label="Total Visits card">
+                    <div class="tv-card__icon" aria-hidden="true">
+                      <img src="./images/total-visits.svg" alt="image" />
+                    </div>
+                    <div class="tv-card__content">
+                      <div class="tv-card__title">
+                        Total Visits
+                        <span id="totalVisitsValue" class="tv-card__value">--</span>
+                      </div>
+                    </div>
+                  </article>
+
+                  <!-- Unique Visit -->
+                  <article class="tv-card" aria-label="Unique Visit card">
+                    <div class="tv-card__icon" aria-hidden="true">
+                      <img src="./images/unique-visits.svg" alt="image" />
+                    </div>
+                    <div class="tv-card__content">
+                      <div class="tv-card__title">
+                        Unique Visit
+                        <span id="uniqueVisitsValue" class="tv-card__value">--</span>
+                      </div>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </section>
+
+            <section class="detail-section detail-section--engagement">
+              <h3>Engagement Quality</h3>
+
+              <div class="detail-metrics-grid-engagement">
+
+                <!-- Form Start -->
+                <div class="metric-row metric-form-start">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/form-start.svg" alt="Form Start" />
+                    </span>
+                    <span class="metric-label">Form Start</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="formStartValue" class="metric-value">--</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Form Submit -->
+                <div class="metric-row metric-form-submit">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/form-submit.svg" alt="Form Submit" />
+                    </span>
+                    <span class="metric-label">Form Submit</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="formSubmitValue" class="metric-value">--</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bounce Rate -->
+                <div class="metric-row metric-bounce">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/bounce-rate.svg" alt="image" />
+                    </span>
+                    <span class="metric-label">Bounce Rate</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="bounceRateValue" class="metric-value">--</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Conversion Rate -->
+                <div class="metric-row metric-conversion">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/convertion-rate.svg" alt="image" />
+                    </span>
+                    <span class="metric-label">Conversion Rate</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="conversionRateValue" class="metric-value">--</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Average Time spent -->
+                <div class="metric-row metric-average-time-spent">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/avg-time-spent.svg" alt="image" />
+                    </span>
+                    <span class="metric-label">Average Time spent</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="averageTimeSpentValue" class="metric-value">--</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- FAQ's Clicked -->
+                <div class="metric-row metric-faq-clicked">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/form-submit.svg" alt="image" />
+                    </span>
+                    <span class="metric-label">FAQ's Clicked</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="faqClicked" class="metric-value">0</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Video's Played -->
+                <div class="metric-row metric-video-played" id="video-section">
+                  <div class="metric-left">
+                    <span class="metric-icon">
+                      <img src="./images/form-start.svg" alt="image" />
+                    </span>
+                    <span class="metric-label">Video's Played</span>
+                  </div>
+                  <div class="metric-right">
+                    <div class="metric-right-group">
+                      <span class="metric-divider" aria-hidden="true"></span>
+                      <span id="videoPlayed" class="metric-value">0</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- PDF's Downloaded -->
+                
+                  <!-- <div class="group-section metric-grid metric-pdf-downloaded" id="pdf-section">
+                    <div class="accordion">
+                      <div class="accordion-header">
+                        <div class="metric-row ">
+                        <div class="metric-left">
+                          <span class="metric-icon">
+                            <img src="./images/pdf_download.svg" alt="image" />
+                          </span>
+                          <span class="metric-label">PDF's Downloaded</span>
+                        </div>
+                        <div class="metric-right">
+                          <div class="metric-right-group">
+                            <span class="metric-divider" aria-hidden="true"></span>
+                            <span class="pdf-val-cont"><span id="pdfdownloaded" class="metric-value">0</span><span class="accordion-arrow"></span></span>
+                          </div>
+                        </div> </div>
+                      </div>
+                      <div class="accordion-content">
+                        <div id="pdf-element-card" class="element-card">
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+               
+                  <div class="metric-row metric-pdf-downloaded" id="pdf-section">
+                    <div class="metric-left">
+                      <span class="metric-icon">
+                        <img src="./images/pdf_download.svg" alt="image" />
+                      </span>
+                      <span class="metric-label">PDF's Downloaded</span>
+                    </div>
+                    <div class="metric-right">
+                      <div class="metric-right-group">
+                        <span class="metric-divider" aria-hidden="true"></span>
+                        <span id="pdfdownloaded" class="metric-value">0</span>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+            </section>
+
+            <section class="detail-section detail-section--two-column">
+              <div class="device-distribution">
+                <h3>Device-wise Traffic Distribution</h3>
+                <div class="detail-metrics-grid-two-column">
+                  <div class="metric-row">
+                    <span class="metric-icon">
+                      <img src="./images/mobile-visit.svg" alt="Mobile visits icon" />
+                    </span>
+                    <span class="metric-label">Mobile Visits</span>
+                    <span class="metric-value" id="mobileVisitsPercent">--</span>
+                  </div>
+                  <div class="metric-row">
+                    <span class="metric-icon">
+                      <img src="./images/non-mobile-visit.svg" alt="Non-mobile visits icon" />
+                    </span>
+                    <span class="metric-label">Non Mobile Visits</span>
+                    <span class="metric-value" id="nonMobileVisitsPercent">--</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="behaviour-context">
+    <h3>Behaviour Context</h3>
+    <div class="detail-metrics-grid">
+      <div class="metric-box metric-box--static metric-box--large">
+        <div class="metric-box-header">
+          <img
+            src="./images/peak-traffic-by-hour.svg"
+            class="peak-traff"
+            alt="Peak traffic by hour icon"
+          />
+          <div class="peak-traffic-by-hr-wrapper">
+            <span class="metric-label">Peak Traffic By Hour</span>
+            <span class="metric-value" id="peakTrafficHourValue">--</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+            </section>
+          </div>
+        </div>
+
+        <!-- PERFORMANCE DETAIL -->
+        <div id="performanceDetail" class="metric-detail">
+          <div class="detail-header">
+            <div class="detail-header-left">
+              <div class="metric-icon-box">
+                <img src="./images/performance-metrics.svg" alt="Performance Metrics" />
+              </div>
+              <div>
+                <div class="detail-title">Performance Metrics</div>
+                <div class="detail-subtitle">Core Web Vitals</div>
+              </div>
+            </div>
+            <div class="detail-header-right"></div>
+          </div>
+
+          <div class="detail-body">
+            <!-- Loader only for this tab -->
+            <div id="performanceTabLoader" class="loader-container"
+              style="display:none; justify-content:center; align-items:center;">
+              <img src="https://beta.asianpaints.com/content/dam/cc-poc-images/pageinsights-images/GIFImage.gif"
+                alt="Loading spinner" class="custom-loader-image" />
+            </div>
+
+
+            <div id="performanceTabContent">
+              <!-- Performance Score card -->
+              <section class="detail-section--performance">
+                <h3>Performance Score</h3>
+
+                <div class="performance-score-widget" data-score="65">
+                  <div class="gauge-container">
+                    <svg class="gauge" viewBox="0 0 150 75" aria-hidden="true">
+                      <defs>
+                        <!-- Yellow gradient -->
+                        <linearGradient id="perfYellowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#FFCE6C" />
+                          <stop offset="100%" stop-color="#FCAF17" />
+                        </linearGradient>
+
+                        <!-- Violet gradient -->
+                        <linearGradient id="perfPurpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#9C5EFA" />
+                          <stop offset="100%" stop-color="#512B8B" />
+                        </linearGradient>
+                      </defs>
+
+
+                      <path class="gauge-yellow" d="M10,75 A65,65 0 0,1 140,75" stroke="url(#perfYellowGradient)" />
+                      <path class="gauge-violet" d="M10,75 A65,65 0 0,1 140,75" stroke="url(#perfPurpleGradient)" />
+                      <path class="gauge-inner-dashed" d="M25,75 A50,50 0 0,1 125,75" />
+                    </svg>
+
+                    <div class="score-overlay">
+                      <div class="score-value">65</div>
+                      <img class="score-quality-icon" src="./images/High-green.svg" alt="High" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="performance-toggle" role="tablist" aria-label="Device">
+                  <button id="desktopBtn" class="toggle-btn desktop-toggle-btn active" type="button" role="tab"
+                    aria-selected="true">
+                    Desktop
+                  </button>
+                  <button id="mobileBtn" class="toggle-btn mobile-toggle-btn" type="button" role="tab"
+                    aria-selected="false">
+                    Mobile
+                  </button>
+                </div>
+              </section>
+
+
+              <section class="detail-section--performance">
+                <h3>What's affecting performance</h3>
+                <div id="desktopMetrics" class="detail-metrics-grid"></div>
+              </section>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACCESSIBILITY DETAIL -->
+        <div id="accessibilityDetail" class="metric-detail">
+          <div class="detail-header">
+            <div class="detail-header-left">
+              <div class="metric-icon-box">
+                <img src="./images/accessibility-compliance.svg" alt="Accessibility Compliance" />
+              </div>
+              <div>
+                <div class="detail-title">
+                  Accessibility Compliance
+                </div>
+                <div class="detail-subtitle">
+                  Compliance Metrics
+                </div>
+              </div>
+            </div>
+            <div class="detail-header-right"></div>
+          </div>
+
+          <div class="detail-body">
+
+            <div id="accessibilityTabLoader" class="loader-container"
+              style="display:none; justify-content:center; align-items:center;">
+              <img src="https://beta.asianpaints.com/content/dam/cc-poc-images/pageinsights-images/GIFImage.gif"
+                alt="Loading spinner" class="custom-loader-image" />
+            </div>
+
+
+            <div id="accessibilityTabContent">
+              <section class="detail-section--accessibility">
+                <h3>Accessibility Score</h3>
+
+                <div class="performance-score-widget" data-score="85">
+                  <div class="gauge-container">
+                    <svg class="gauge" viewBox="0 0 150 75" aria-hidden="true">
+                      <defs>
+                        <linearGradient id="accYellowGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#FFCE6C" />
+                          <stop offset="100%" stop-color="#FCAF17" />
+                        </linearGradient>
+                        <linearGradient id="accPurpleGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                          <stop offset="0%" stop-color="#9C5EFA" />
+                          <stop offset="100%" stop-color="#512B8B" />
+                        </linearGradient>
+                      </defs>
+
+                      <path class="gauge-yellow" d="M10,75 A65,65 0 0,1 140,75" stroke="url(#accYellowGradient)" />
+                      <path class="gauge-violet" d="M10,75 A65,65 0 0,1 140,75" stroke="url(#accPurpleGradient)" />
+                      <path class="gauge-inner-dashed" d="M25,75 A50,50 0 0,1 125,75" />
+                    </svg>
+
+                    <div class="score-overlay">
+                      <div class="score-value">85</div>
+                      <img class="score-quality-icon" src="./images/High-green.svg" alt="High" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="performance-toggle accessibility-toggle" role="tablist" aria-label="Device">
+                  <button class="toggle-btn active" type="button" role="tab" aria-selected="true" data-device="desktop">
+                    Desktop
+                  </button>
+                  <button class="toggle-btn" type="button" role="tab" aria-selected="false" data-device="mobile">
+                    Mobile
+                  </button>
+                </div>
+              </section>
+              <div class="wcag-compliance-metrics">
+                <h3>Compliance Metrics</h3>
+                <div id="trafficMetricsContainer" class="metric-grid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@2.29.4/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+  <script src="utils/state.js"></script>
+  <script src="utils/constants.js"></script>
+  <script src="utils/helpers.js"></script>
+  <script src="components/Performance/performance.js"></script>
+  <script src="components/Analytics/analytics.js"></script>
+  <script src="components/Accessibility/accessibility.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>
