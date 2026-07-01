@@ -30,7 +30,7 @@
       href.startsWith("http://127.0.0.1") ||
       href.startsWith("https://127.0.0.1")
     ) {
-      return "https://www.asianpaints.com/";
+      return "https://beta.asianpaints.com/";
     }
     return href;
   }
